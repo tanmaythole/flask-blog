@@ -1,0 +1,72 @@
+.carousel-item img{
+    height: 400px;
+    opacity: 0.8;
+}
+.card img{
+    height: 150px;
+}
+#main-container{
+    min-height: 79vh;
+    overflow: hidden;
+}
+.footer{
+    bottom: 0;
+    position: relative;
+}
+.card:hover{
+    transform: scale(1.05);
+    transition: .3s ease-in-out;
+}
+
+
+/* =========================
+    Admin Section
+========================= */
+#login-container{
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+}
+.sidebar{
+    top: 56px;
+    left: 0;
+    position: fixed;
+    height: calc(100vh - 56px);
+    z-index: 100;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: inset -1px 0 0 rgb(212, 212, 212);
+}
+@media screen and (min-width:991px){
+    .sign-out-btn{
+        right: 0;
+        position: absolute;
+    }
+}
+.sidebar .nav{
+    padding-top: 15px;
+}
+.sidebar .nav .nav-link{
+    color: #333;
+}
+.sidebar .nav .active a{
+    font-weight: bold;
+    color: blue;
+}
+.sidebar .nav a:hover{
+    color: #007bff;
+    font-weight: bold;
+}
+
+#typecard{
+    width: 18rem;
+    color: #333;
+}
+#typecard .cont{
+    float: left;
+}
+#typecard .card-body i{
+    float: right;
+    font-size: 4rem;
+}

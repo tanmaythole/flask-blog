@@ -1,0 +1,30 @@
+{% extends 'admin/admin-layout.html' %}
+{% block addblog %}
+    active
+{% endblock addblog %}
+{% block body %}
+    <div class="col-md-8">
+        <h1 class="mt-0">Add/Edit Blog</h1>
+        <form action="" class="pt-3" method="POST">
+            <div class="form-group">
+                <label for="blogTitle">Blog Title</label>
+                <input type="text" name="blogTitle" id="blogTitle" value="{{blog.blogpost_title}}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="blogSlug">Blog Slug</label>
+                <input type="text" name="blogSlug" id="blogSlug" value="{{blog.blogpost_slug}}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="blogContent">Blog Content</label>
+                <textarea type="text" name="blogContent" id="blogContent"  class="form-control">{{blog.blogpost_content | safe}}</textarea>
+            </div>
+            <div class="form-group">
+                <input type="radio" name="status" id="draft" value="Draft">
+                <label for="draft">Draft</label>&nbsp;&nbsp;
+                <input type="radio" name="status" id="publish" value="Publish">
+                <label for="publish">Publish</label>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+    </div>
+{% endblock body %}

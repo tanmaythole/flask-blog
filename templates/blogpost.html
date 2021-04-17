@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <div  class="alert-secondary">
+        <div class="container col-md-8 py-4 shadow bg-light" id="main-container">
+            <h1>{{ post.blogpost_title }}</h1>
+            <div class="text-secondary">
+                <i class="fa fa-calendar"> <i>Posted On {{post.date}}</i></i>
+                <p class="float-right">In <i><a href="">Technology</a></i></p>
+            </div>
+            <hr>
+            <p>{{ post.blogpost_content | safe }}</p>
+        </div>
+        
+    </div>
+{% endblock %}

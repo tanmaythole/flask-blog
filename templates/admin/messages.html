@@ -1,0 +1,91 @@
+{% extends 'admin/admin-layout.html' %}
+{% block messages %}
+    active
+{% endblock messages %}
+{% block body %}
+{% include 'admin/modal/reply-msg.html' %}
+    <div class="container pt-2 col-md-12">
+        
+        <div class="container">
+            <h2 class="pb-3">New Messages</h2>
+            {% if new_messages|length == 0 %}
+                New Messages Not Found!!
+            {% else %}
+                <table class="table stripe hover" id="messages">
+                    <thead>
+                        <th>S.No</th>
+                        <th>Message From</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Time</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody>
+                        {% for msg in new_messages %}
+                            <tr>
+                                <td>{{loop.index}}</td>
+                                <td>{{msg.name}}</td>
+                                <td>{{msg.email}}</td>
+                                <td>{{msg.subject}}</td>
+                                <td>{{msg.message}}</td>
+                                <td>{{msg.date}}</td>
+                                <td><button id="{{msg.sno}}" class="reply btn btn-sm btn-success mr-1">Reply</button><a href="/admin/deletemsg/{{msg.sno}}" class="btn btn-sm btn-danger">Delete</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+        <div class="container py-4">
+            <h2>Replied Messages</h2>
+            <p>Messages Within 30 days</p>
+            {% if old_messages|length == 0 %}
+                Messages Not Found!!
+            {% else %}
+                <table class="table stripe hover" id="old_messages">
+                    <thead>
+                        <th>S.No.</th>
+                        <th>Message From</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Reply</th>
+                        <th>Reply On</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        {% for old in old_messages %}
+                            <tr>
+                                <td>{{loop.index}}</td>
+                                <td>{{old.name}}</td>
+                                <td>{{old.subject}}</td>
+                                <td>{{old.message}}</td>
+                                <td>{{old.reply}}</td>
+                                <td>{{old.date}}</td>
+                                <td><a href="/admin/deletemsg/{{old.sno}}" class="btn btn-sm btn-danger">Delete</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        var reply = document.getElementsByClassName('reply');
+        Array.from(reply).forEach(element=>{
+            element.addEventListener("click",function(e){
+               
+                user_id.value = e.target.id;
+                console.log(user_id.value);
+                tr = e.target.parentNode.parentNode;
+                msg_from.value = tr.getElementsByTagName('td')['1'].innerText;
+                email.value = tr.getElementsByTagName('td')['2'].innerText;
+                subject.value = tr.getElementsByTagName('td')['3'].innerText;
+                msg.value = tr.getElementsByTagName('td')['4'].innerText;
+                // console.log(msg_from, subject, msg);
+
+                $('#ReplyModal').modal('toggle');
+            });
+        });
+    </script>
+{% endblock body %}

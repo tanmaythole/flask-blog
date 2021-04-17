@@ -1,0 +1,33 @@
+{% extends 'admin/admin-layout.html' %}
+{% block blogs %}
+    active
+{% endblock blogs %}
+{% block body %}
+    <div class="container pt-5 col-md-12">
+        <table class="table stripe hover" id="blogposts">
+            <thead>
+                <th>S.No.</th>
+                <th>Blog Title</th>
+                <th>Blog Content</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Time</th>
+                <th style="width: 90px;">Actions</th>
+            </thead>
+            <tbody>
+                {% for blog in blog %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ blog.blogpost_title }}</td>
+                        <td>{{ blog.blogpost_content[:100] | safe}}...</td>
+                        <td>{{ blog.blog_cat_id}}</td>
+                        <td>{{ blog.status }}</td>
+                        <td>{{ blog.date }}</td>
+                        <td><a href="/admin/edit/{{blog.sno}}" class="btn btn-sm btn-warning mr-1">Edit</a><a href="/admin/deleteblog/{{blog.sno}}" class="btn btn-sm btn-danger">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+{% endblock body  %}

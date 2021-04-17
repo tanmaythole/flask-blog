@@ -1,0 +1,104 @@
+{% include 'admin/modal/add-category.html' %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Admin Dashboard</title>
+
+</head>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarMenu"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Admin Panel</a>
+    <ul class="navbar-nav px-3 sign-out-btn">
+        <li class="nav-item">
+            <a href="/signout" class="btn btn-danger">Sign Out</a>
+        </li>
+    </ul>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div id="sidebarMenu" class="col-md-3 bg-light col-lg-2 collapse navbar-collapse d-md-block sidebar">
+            <ul class="nav flex-column">
+                <li class="nav-item {% block home %}{% endblock home %}" id="home">
+                    <a href="/admin" class="nav-link"><i class="fa fa-home pr-2"></i> Home</a>
+                </li>
+                <li class="nav-item {% block cat %}{% endblock cat %}" id="cats">
+                    <a href="/admin/category" class="nav-link"><i class="fa fa-th pr-2"></i> Categories</a>
+                </li>
+                <li class="nav-item {% block blogs %}{% endblock blogs %}" id="blogs">
+                    <a href="/admin/blogs" class="nav-link"><i class="fa fa-file-code-o pr-2"></i> Blogs</a>
+                </li>
+                <li class="nav-item" id="add-cat">
+                    <a href="" class="nav-link" data-toggle="modal" data-target="#add-categoryModal"><i
+                            class="fa fa-plus pr-2"></i> Add Category</a>
+                </li>
+                <li class="nav-item {% block addblog %}{% endblock addblog %}" id="add-blog">
+                    <a href="/admin/edit/0" class="nav-link"><i class="fa fa-code pr-2"></i> Add Blog</a>
+                </li>
+                <li class="nav-item {% block messages %}{% endblock messages %}" id="msgs">
+                    <a href="/admin/messages" class="nav-link"><i class="fa fa-comments-o pr-2"></i> Messages</a>
+                </li>
+            </ul>
+        </div>
+        <main class="col-md-10 ml-sm-auto pt-2">
+            {% block body %}
+
+            {% endblock body %}
+        </main>
+
+    </div>
+</div>
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='ckeditor/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace('blogContent');
+</script>
+<!-- <script>
+    
+    consol.log(document.getElementById());
+</script> -->
+<script src="http://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#blogposts').DataTable();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#messages').DataTable();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#old_messages').DataTable();
+    });
+</script>
+</body>
+
+</html>

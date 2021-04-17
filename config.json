@@ -1,0 +1,13 @@
+{
+    "parameters":
+    {
+        "local_server":"True",
+        "local_uri": "mysql://root:@localhost/coding_gem",
+        "prod_uri": "mysql://root:@localhost/coding_gem",
+        "gmail_id": "Your Gmail Id",
+        "gmail_password": "Your Gmail Password",
+        "no_of_posts_per_page": 5,
+        "admin_username":"admin",
+        "admin_password":"admin"
+    }
+}

@@ -1,0 +1,59 @@
+{% extends 'admin/admin-layout.html' %}
+{% block home %}
+    active
+{% endblock home %}
+{% block body %}
+    
+        <div class="row">
+            <a href="/admin/category" class="card m-3 border-primary" id="typecard">
+                <div class="card-body ">
+                    <div class="cont">
+                        <h2>No</h2>
+                        <h3>Categories</h3>
+                    </div>
+                    <i class="p-3 text-primary fa fa-bars"></i>
+                </div>
+                <div class="card-footer bg-primary text-light">
+                    View Categories <i class="fa fa-angle-double-right"></i>
+                </div>
+            </a>
+            <a href="/admin/blogs" class="card m-3 border-success" id="typecard">
+                <div class="card-body ">
+                    <div class="cont">
+                        <h2>{{ no_of_blog }}</h2>
+                        <h3>Blogs</h3>
+                    </div>
+                    <i class="p-3 text-success fa fa-file-code-o"></i>
+                </div>
+                <div class="card-footer bg-success text-light">
+                    View Blogs <i class="fa fa-angle-double-right"></i>
+                </div>
+            </a>
+            <a href="/admin/edit/0" class="card m-3 border-danger" id="typecard">
+                <div class="card-body ">
+                    <div class="cont">
+                        <h3>Add Blog</h3>
+                        <h4>Write a Blog</h4>
+                    </div>
+                    <i class="p-3 text-danger fa fa-code"></i>
+                </div>
+                <div class="card-footer bg-danger text-light">
+                    Add Blog <i class="fa fa-angle-double-right"></i>
+                </div>
+            </a>
+            <a href="/admin/messages" class="card m-3 border-info" id="typecard">
+                <div class="card-body ">
+                    <div class="cont">
+                        <h2>{{ no_of_msgs }}</h2>
+                        <h3>Messages</h3>
+                    </div>
+                    <i class="p-3 text-info fa fa-comments-o"></i>
+                </div>
+                <div class="card-footer bg-info text-light">
+                    View Messages <i class="fa fa-angle-double-right"></i>
+                </div>
+            </a>
+
+            
+        </div>
+{% endblock body %}

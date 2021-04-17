@@ -1,0 +1,49 @@
+<!-- Button trigger modal
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ReplyModal">
+    Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="ReplyModal" tabindex="-1" aria-labelledby="ReplyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ReplyModalLabel">Reply to Message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/admin/replymsg" method="POST">
+                <div class="modal-body">
+                    <input type="hidden" name="user_id" id="user_id">
+                    <div class="form-group">
+                        <label for="msg_from">Sender's Name:</label>
+                        <input type="text" class="form-control" id="msg_from" name="msg_from" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" class="form-control" id="subject" name="subject" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="msg">Message:</label>
+                        <textarea type="text" class="form-control" id="msg" name="msg" readonly></textarea>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="reply">Reply:</label>
+                        <textarea type="text" class="form-control" id="reply" name="reply"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
